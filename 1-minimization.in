@@ -1,0 +1,13 @@
+initial minimization of complete system in NVT
+ &cntrl
+  imin   = 1,
+  maxcyc = 10000,
+  ncyc   = 5000,
+  ntb    = 1,
+  ntr    = 1,
+  cut    = 10.0,
+  restraint_wt=50.0,
+  restraintmask=':1-24&!@H='
+ /
+END
+END
