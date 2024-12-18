@@ -1,0 +1,24 @@
+source leaprc.protein.ff14SB
+source leaprc.water.tip3p
+
+loadamberparams frcmod.known
+loadoff oab.off
+
+m = loadpdb ../mono-ortho-d2-1.inpcrd.pdb
+n = loadpdb water-10k.pdb
+
+p = combine {m n}
+savepdb p mono-ortho-d2-1-1.pdb
+
+p = loadpdb mono-ortho-d2-1-1.pdb 
+
+bond p.2.SG p.7.SG
+bond p.40.SG p.45.SG
+bond p.78.SG p.83.SG
+bond p.116.SG p.121.SG
+
+charge p
+setbox p "vdw" 10.0
+saveamberparm p mono-ortho-d2-1-1.prmtop mono-ortho-d2-1-1.inpcrd
+
+quit
